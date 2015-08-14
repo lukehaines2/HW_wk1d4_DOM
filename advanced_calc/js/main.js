@@ -60,19 +60,16 @@ button3.addEventListener("click", function() {
     } else {
       var bmi = (mass * 703) / Math.pow(height, 2);
     };
-       console.log(mass);
+  console.log(mass);
 
-      var bmi; 
-      // Calculate the answer based on the chosen basic operator
-      
-      
-      bmi = Math.round(bmi * 100) / 100;
+  var bmi; 
+  // Calculate the answer based on the chosen basic operator 
+  bmi = Math.round(bmi * 100) / 100;
 
-      // finally, display the result
+  // finally, display the result
   var bmiAnswer = document.getElementById("bmi-answer");
 
   // answer = bmi
-
   bmiAnswer.className = "show";
 
   document.getElementById("bmi-answer-alert").innerHTML = " Your BMI is : " + bmi;
@@ -89,31 +86,32 @@ button2.addEventListener("click", function() {
   console.log("click button event triggered");
 
   var tripDisctance = parseFloat(document.getElementById("trip-distance").value);
-  console.log(mass)
-  var height = parseFloat(document.getElementById("bmi-height").value);
-  console.log(height)
-  var units = document.getElementById("bmi-units").value;
-  console.log(units)
-  if (units === "metric") {
-      var bmi = mass / Math.pow(height, 2);
-    } else {
-      var bmi = (mass * 703) / Math.pow(height, 2);
-    };
-       console.log(mass);
+  console.log(tripDisctance)
+  var tripMpg = parseFloat(document.getElementById("trip-mpg").value);
+  console.log(tripMpg)
+  var tripCost = parseFloat(document.getElementById("trip-cost").value);
+  console.log(tripCost)
+  var tripSpeed = parseFloat(document.getElementById("trip-speed").value);
+  console.log(tripSpeed)
+  
 
-      var bmi; 
-      // Calculate the answer based on the chosen basic operator
-      
-      
-      bmi = Math.round(bmi * 100) / 100;
 
+  // Calculate the answer based on the chosen basic operator
+  
+  var time = tripDisctance / tripSpeed;
+  time = Math.round(time * 100) / 100; // round it to two decimals
+  var actualMPG = (tripMpg > 60) ? Math.max(0, tripMpg - (tripSpeed - 60) * 2) : tripMpg;
+
+  var cost = (tripDisctance / actualMPG * cost);
+  cost = Math.round(cost * 100) / 100;
+      
+     
       // finally, display the result
   var tripAnswer = document.getElementById("trip-answer");
 
   // answer = bmi
-
   tripAnswer.className = "show";
 
-  document.getElementById("trip-answer-alert").innerHTML = " Your BMI is : " + bmi;
+  document.getElementById("trip-answer-alert").innerHTML = " Your trip will take " + time + " hours and cost $" + cost;
 
 });
