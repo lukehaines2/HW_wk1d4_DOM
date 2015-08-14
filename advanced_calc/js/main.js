@@ -79,3 +79,41 @@ button3.addEventListener("click", function() {
 
 });
 
+
+
+
+// TRIP calc
+var button2 = document.getElementById("trip-calc");
+
+button2.addEventListener("click", function() {
+  console.log("click button event triggered");
+
+  var tripDisctance = parseFloat(document.getElementById("trip-distance").value);
+  console.log(mass)
+  var height = parseFloat(document.getElementById("bmi-height").value);
+  console.log(height)
+  var units = document.getElementById("bmi-units").value;
+  console.log(units)
+  if (units === "metric") {
+      var bmi = mass / Math.pow(height, 2);
+    } else {
+      var bmi = (mass * 703) / Math.pow(height, 2);
+    };
+       console.log(mass);
+
+      var bmi; 
+      // Calculate the answer based on the chosen basic operator
+      
+      
+      bmi = Math.round(bmi * 100) / 100;
+
+      // finally, display the result
+  var tripAnswer = document.getElementById("trip-answer");
+
+  // answer = bmi
+
+  tripAnswer.className = "show";
+
+  document.getElementById("trip-answer-alert").innerHTML = " Your BMI is : " + bmi;
+
+});
